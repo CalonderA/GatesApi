@@ -1,0 +1,24 @@
+@base = http://localhost:5080
+
+### Валидный код — ворота открываются
+POST {{base}}/api/gates/validate
+Content-Type: application/json
+
+{
+  "accessCode": "lox7!"
+}
+
+### Код с нарушениями 
+POST {{base}}/api/gates/validate
+Content-Type: application/json
+
+{
+  "accessCode": "dragon123"
+}
+
+POST {{base}}/api/gates/validate
+Content-Type: application/json
+
+{
+  "accessCode": ""
+}

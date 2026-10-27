@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GatesApi</name>
+    </assembly>
+    <members>
+        <member name="M:GatesApi.Controllers.GatesController.Validate(GatesApi.Models.ValidateAccessCodeRequest)">
+            <summary>
+            Проверяет код доступа и решает, открывать ли ворота.
+            </summary>
+            <param name="request">Тело запроса с кодом доступа в поле accessCode.</param>
+            <returns>Результат проверки: признак валидности, список всех нарушений и сообщение.</returns>
+            <response code="200">Код проверен, возвращён результат проверки.</response>
+            <response code="400">Код доступа отсутствует или пуст.</response>
+        </member>
+        <member name="T:GatesApi.Models.AccessCodeValidationResult">
+            <summary>
+            Результат проверки кода доступа.
+            </summary>
+        </member>
+        <member name="P:GatesApi.Models.AccessCodeValidationResult.IsValid">
+            <summary>
+            Пройдены ли все проверки.
+            </summary>
+        </member>
+        <member name="P:GatesApi.Models.AccessCodeValidationResult.Errors">
+            <summary>
+            Список всех обнаруженных нарушений.
+            </summary>
+        </member>
+        <member name="P:GatesApi.Models.AccessCodeValidationResult.Message">
+            <summary>
+            Итоговое сообщение.
+            </summary>
+        </member>
+        <member name="T:GatesApi.Models.ValidateAccessCodeRequest">
+            <summary>
+            Запрос на проверку кода доступа.
+            </summary>
+        </member>
+        <member name="P:GatesApi.Models.ValidateAccessCodeRequest.AccessCode">
+            <summary>
+            Код доступа для проверки.
+            </summary>
+        </member>
+        <member name="T:GatesApi.Services.AccessCodeValidator">
+            <summary>
+            Бизнес-логика проверки кодов доступа: код валиден, только если выполнены все правила.
+            </summary>
+        </member>
+        <member name="F:GatesApi.Services.AccessCodeValidator.SpecialCharacters">
+            <summary>Разрешённые специальные символы.</summary>
+        </member>
+        <member name="T:GatesApi.Services.IAccessCodeValidator">
+            <summary>
+            Сервис проверки кодов доступа.
+            </summary>
+        </member>
+        <member name="M:GatesApi.Services.IAccessCodeValidator.Validate(System.String)">
+            <summary>
+            Проверяет код по всем правилам и возвращает результат со списком всех нарушений, а не только первым.
+            </summary>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+    </members>
+</doc>
